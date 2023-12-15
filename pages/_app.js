@@ -8,6 +8,8 @@ import Hero from "../components/Hero";
 import AllArticles from "../components/AllArticles";
 import Article from "../components/Article";
 import PopularArticles from "../components/PopularArticles";
+import Pdf from "../components/Pdf";
+import Doc from "../components/Doc";
 
 const components = {
   feature: Feature,
@@ -18,6 +20,8 @@ const components = {
   "all-articles": AllArticles,
   article: Article,
   "popular-articles": PopularArticles,
+  pdf: Pdf,
+  doc: Doc,
 };
 
 storyblokInit({
