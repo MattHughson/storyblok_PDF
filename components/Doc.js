@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 
@@ -51,7 +51,19 @@ const styles = StyleSheet.create({
     },
   })
 const Doc = ({blok}) => {
-    console.log('blok image',blok.image)
+const [switchedUrl, setSwitchedUrl] =useState(null)
+  useEffect(() => {
+    console.log("blok1",blok)
+    if(blok?.image.filename){
+      
+      const url =blok?.image.filename.replace('https://a.storyblok.com', 'https://s3.amazonaws.com/a.storyblok.com')
+      console.log("url",url)
+      setSwitchedUrl(url)
+      console.log('switch',switchedUrl)
+    }
+  
+  }, [blok])
+  
 
   return (
 
@@ -65,7 +77,7 @@ const Doc = ({blok}) => {
       <Text style={styles.author}>Miguel de Cervantes</Text>
       <Image
         style={styles.image}
-        src={blok.image.filename}
+        src={switchedUrl}
       />
       <Text style={styles.subtitle}>
         Capítulo I: Que trata de la condición y ejercicio del famoso hidalgo D.
