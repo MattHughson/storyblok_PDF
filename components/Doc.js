@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
   })
 const Doc = ({blok}) => {
-    console.log('blok',blok.image)
+    console.log('blok image',blok.image)
 
   return (
 
